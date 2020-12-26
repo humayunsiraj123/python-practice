@@ -1,0 +1,67 @@
+from tkinter import *
+from math import*
+cal=Tk()
+cal.geometry("400x400")
+cal.title("SCIENTIFIC CALCULATOR")
+ope=''
+textt=StringVar()
+
+    
+def click(n):
+    global textt,ope
+    ope+=str(n)
+    textt.set(ope)
+def clear():
+    global textt,ope
+    ope=""
+    textt.set(ope)
+def equal():
+    global textt,ope
+    summ=str(eval(ope))
+    textt.set(summ)
+    ope=""
+def but(a,b,c,d):
+    a=Button(cal,text=b,bd=5, relief=GROOVE,bg=light)
+    
+screen=Entry(cal,bd=40,width=30,textvariable=textt,insertwidth=10,bg="lightblue",font="Ariel 12 bold",justify="right",relief=SUNKEN)
+screen.grid(columnspan=3)
+b7 = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '7', command = lambda :click(7)).grid(row=2 , column=3)
+b8 = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '8', command = lambda :click(8)).grid(row= 2, column=4)
+b9 = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '9', command = lambda :click(9)).grid(row= 2, column=5)
+bdiv = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '/',command = lambda :click("/")).grid(row= 2, column=6)
+b4 = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '4', command = lambda :click(4)).grid(row=3 , column=3)
+b5 = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '5', command = lambda :click(5)).grid(row= 3, column=4)
+b6 = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '6', command = lambda :click(6)).grid(row= 3, column=5)
+bmul = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '*', command = lambda :click("*")).grid(row= 3, column=6)
+b1 = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '1', command = lambda :click(1)).grid(row=4 , column=3)
+b2 = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '2', command = lambda :click(2)).grid(row= 4, column=4)
+b3 = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '3', command = lambda :click(3)).grid(row= 4, column=5)
+bsub = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '-', command = lambda :click("-")).grid(row= 4, column=6 )
+b0 = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '0', command = lambda :click(0)).grid(row=5 , column=3)
+bdot = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '.', command = lambda :click(".")).grid(row= 5, column=4)
+bequ = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '=', command = lambda :equal()).grid(row= 5, column=5)
+bplus = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '+', command = lambda :click("+")).grid(row= 5, column=6)
+brad = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'Rad', command = lambda :click()).grid(row=1 , column=0)
+bdeg = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'Deg', command = lambda :click()).grid(row= 1, column=1)
+bx = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'x! ',    command = lambda :click()).grid(row= 1, column=2)
+bbraco = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '(', command = lambda :click("(")).grid(row=1 , column=3)
+bbracc = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= ')', command = lambda :click(')')).grid(row=1 , column=4)                                    
+bmod = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= '%', command = lambda :click()).grid(row= 1, column=5)
+bac = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'AC', command = lambda :clear()).grid(row=1 , column=6)
+binv = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'Inv', command = lambda :click("hsin")).grid(row=2 , column=0)
+bsin = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'Sin', command = lambda :click("sin")).grid(row=2 , column=1)
+bln = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'lnx', command = lambda :click()).grid(row= 2, column=2)
+bpi = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'pie', command = lambda :click("pi")).grid(row=3 , column=0)
+bcos = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'Cos', command = lambda :click()).grid(row=3 , column=1)
+blog = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'log', command = lambda :click()).grid(row= 3, column=2)
+bpow = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'x^y', command = lambda :click("sqrt")).grid(row=5, column=2)
+bans = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'Ans', command = lambda :click()).grid(row=5 , column=0)
+bexp = Button(cal, padx=16,bd=8, fg ='black', font=('arial',20,'bold'), text= 'Exp', command = lambda :click()).grid(row=5 , column=1)
+
+
+
+
+cal.mainloop()
+
+
+    
